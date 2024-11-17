@@ -1,0 +1,39 @@
+package RetailStore;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a product catalog (assuming this is already populated)
+        ProductCatalog catalog = new ProductCatalog();
+
+        // Create an order
+        Order order1 = new Order("O001", "2024-11-17", "John Doe");
+
+        // Add some items to the order (CartItems)
+        CartItem item1 = new CartItem("P001", 2, 15.99);
+        CartItem item2 = new CartItem("P002", 1, 25.50);
+        order1.addItem(item1);
+        order1.addItem(item2);
+
+        // Calculate the total
+        order1.calculateTotal();
+
+        // Display order details
+        System.out.println(order1.getOrderDetails());
+
+        // Create an order queue
+        OrderQueue orderQueue = new OrderQueue();
+
+        // Enqueue the order
+        orderQueue.enqueueOrder(order1);
+
+        // Check the next order without processing it
+        orderQueue.peekOrder();
+
+        // Dequeue the order (process the order)
+        orderQueue.dequeueOrder();
+
+        // Check if queue is empty
+        System.out.println("Queue empty: " + orderQueue.isEmpty());
+    }
+}
+	
